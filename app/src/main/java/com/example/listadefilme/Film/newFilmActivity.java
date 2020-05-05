@@ -9,9 +9,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import com.example.listadefilme.Actor.Actor;
-import com.example.listadefilme.Actor.ActorAdapter;
+
+import com.example.listadefilme.Actor.ActorFragment;
 import com.example.listadefilme.Director.Director;
 import com.example.listadefilme.Director.DirectorAdapter;
 import com.example.listadefilme.Director.DirectorFragment;
@@ -30,8 +29,6 @@ public class newFilmActivity extends AppCompatActivity{
     Film film;
     List<String> directorName = new ArrayList<>();
     List<String> actorName = new ArrayList<>();
-    List<Actor> listActor = new ArrayList<>();
-    List<Director> listDirector = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -43,6 +40,33 @@ public class newFilmActivity extends AppCompatActivity{
         genreEditText = findViewById(R.id.genreEditText);
         directorNameSpinner = findViewById(R.id.directorNameSpinner);
         actorNameSpinner = findViewById(R.id.actorNameSpinner);
+
+        directorName.add("Chris Columbus");
+        directorName.add("Peter Jackson");
+        directorName.add("David Fincher");
+
+        actorName.add("Daniel Radcliffe");
+        actorName.add("Elijah Wood");
+        actorName.add("Brad Pitt");
+
+
+        for (int i = 0; i < DirectorFragment.names.size(); i++){
+            if(DirectorFragment.names.get(i).equals("Chris Columbus") || DirectorFragment.names.get(i).equals("Peter Jackson") || DirectorFragment.names.get(i).equals("David Fincher")){
+
+            }else{
+                directorName.add(DirectorFragment.names.get(i));
+            }
+
+        }
+
+        for (int i = 0; i < ActorFragment.names.size(); i++){
+            if(ActorFragment.names.get(i).equals("Daniel Radcliffe") || ActorFragment.names.get(i).equals("Elijah Wood") || ActorFragment.names.get(i).equals("Brad Pitt")){
+
+            }else{
+                actorName.add(ActorFragment.names.get(i));
+            }
+        }
+
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, directorName);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

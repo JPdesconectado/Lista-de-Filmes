@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.listadefilme.Film.newFilmActivity;
 import com.example.listadefilme.R;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +20,8 @@ public class DirectorFragment extends Fragment {
     private View view;
     private RecyclerView recyclerView;
     private List<Director> listDirector = new ArrayList<>();
+    public static List<String> names = new ArrayList<>();
     private DirectorAdapter adapter;
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(R.layout.fragment_director, container, false);
@@ -38,6 +40,10 @@ public class DirectorFragment extends Fragment {
             }
         });
 
+        for(int i = 0; i < listDirector.size(); i++){
+            addLista(listDirector.get(i).getName());
+        }
+
         setRetainInstance(true);
         return view;
     }
@@ -52,6 +58,7 @@ public class DirectorFragment extends Fragment {
         listDirector.add(new Director(R.drawable.david_fincher, "David Fincher", "28/08/1962"));
         }
 
+
     }
 
     @Override
@@ -60,9 +67,15 @@ public class DirectorFragment extends Fragment {
         if (resultCode == getActivity().RESULT_OK && requestCode == 1) {
         Bundle bundle = data.getExtras();
         Director director = (Director) bundle.getSerializable("director");
+        addLista(director.getName());
         adapter.inserir(director);
+
         }
     }
 
+    public void addLista(String string){
+            names.add(string);
+
+    }
 
 }

@@ -47,17 +47,19 @@
 
     <Spinner
         android:id="@+id/directorNameSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="413dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/genreEditText"/>
+        app:layout_constraintTop_toBottomOf="@+id/genreEditText" />
 
     <Spinner
         android:id="@+id/actorNameSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="413dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/directorNameSpinner"/>
+        app:layout_constraintTop_toBottomOf="@+id/directorNameSpinner" />
 
     <Button
         android:id="@+id/concluirButton"

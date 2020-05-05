@@ -22,6 +22,7 @@ public class ActorFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<Actor> listActor = new ArrayList<>();
     private ActorAdapter adapter;
+    public static List<String> names = new ArrayList<>();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -39,6 +40,10 @@ public class ActorFragment extends Fragment {
                 startActivityForResult(intent, 1);
             }
         });
+
+        for(int i = 0; i < listActor.size(); i++){
+            addLista(listActor.get(i).getName());
+        }
 
         setRetainInstance(true);
 
@@ -63,9 +68,15 @@ public class ActorFragment extends Fragment {
         if (resultCode == getActivity().RESULT_OK && requestCode == 1) {
             Bundle bundle = data.getExtras();
             Actor actor = (Actor) bundle.getSerializable("actor");
+            addLista(actor.getName());
             adapter.inserir(actor);
 
         }
+    }
+
+    public void addLista(String string){
+        names.add(string);
+
     }
 
 }
