@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Arcane Cauldron</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="Directors">Directors</string>
+    <string name="Actors">Actors</string>
+    <string name="Films">Films</string>
+    <string name="collections">Collections</string>
+</resources>
